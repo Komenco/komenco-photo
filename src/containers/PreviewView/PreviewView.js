@@ -1,6 +1,6 @@
 /**
- * Nico React Naitve Application
- * Author: André Neves (Big Human)
+ * Komenco Photo React Naitve Application
+ * Author: André Neves
  */
 
 import React, { Component } from 'react'
