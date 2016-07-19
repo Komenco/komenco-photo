@@ -4,19 +4,14 @@
  */
 
 import React from 'react';
+import { Provider } from 'react-redux';
+import { Router } from 'react-native-router-flux';
 import { StatusBar } from 'react-native';
-import { Actions, Router, Scene } from 'react-native-router-flux';
-import CameraView from './containers/CameraView/CameraView';
-import PreviewView from './containers/PreviewView/PreviewView';
+import scenes from './scenes/scenes';
+import configureStore from './store/configureStore';
 
 StatusBar.setBarStyle('light-content');
-
-const scenes = Actions.create(
-  <Scene key='app'>
-    <Scene key='camera' type='replace' initial={true} hideNavBar={true} component={CameraView} title='Camera' />
-    <Scene key='preview' type='replace' hideNavBar={true} component={PreviewView} title='Preview' />
-  </Scene>
-);
+const store = configureStore();
 
 const getSceneStyle = () => ({
   flex: 1,
@@ -28,10 +23,12 @@ const getSceneStyle = () => ({
 });
 
 const App = () => (
-  <Router
-    scenes={scenes}
-    getSceneStyle={getSceneStyle}
-  />
-)
+  <Provider store={store}>
+    <Router
+      scenes={scenes}
+      getSceneStyle={getSceneStyle}
+    />
+  </Provider>
+);
 
 export default App;

@@ -4,14 +4,13 @@
  */
 
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, Platform } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
-export default class PreviewView extends Component {
+export default class PreviewContainer extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
   render() {
@@ -20,7 +19,7 @@ export default class PreviewView extends Component {
         <Image
           source={{
             isStatic: true,
-            uri: `data:image/jpeg;base64,${this.props.data}`,
+            uri: this.props.data,
           }}
           style={styles.image}
         />
@@ -40,7 +39,7 @@ export default class PreviewView extends Component {
   }
 }
 
-const tabHeight = 60;
+const tabHeight = (Platform.OS === 'ios') ? 60 : 80;
 const { height, width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -49,11 +48,12 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    width: width,
-    height: height - tabHeight
+    bottom: 0
   },
   previewView: {
-    flex: 1
+    flex: 1,
+    width: width,
+    height: height
   },
   topOverlay: {
     position: 'absolute',
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingTop: 40,
+    paddingTop: (Platform.OS === 'ios') ? 40 : 0,
     paddingLeft: 10,
     paddingRight: 10,
   },
