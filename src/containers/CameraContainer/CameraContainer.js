@@ -7,6 +7,7 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
+import Share from 'react-native-share';
 import styles from './styles';
 
 import CaptureButton from '../../components/CaptureButton';
@@ -44,6 +45,16 @@ export default class CameraContainer extends Component {
         Actions.preview(data.path);
       })
       .catch(err => console.error(err));
+  }
+
+  _onShare() {
+    Share.open({
+      share_text: "Hola mundo",
+      share_URL: "http://google.cl",
+      title: "Share Link"
+    },(e) => {
+      console.log(e);
+    });
   }
 
   _toggleCameraType() {
@@ -116,7 +127,7 @@ export default class CameraContainer extends Component {
             imageSource={require('../../../assets/flash-off.png')}
           />
           <OverlayTouchable
-            onPress={this._toggleTorchMode}
+            onPress={this._onShare}
             imageSource={require('../../../assets/flash-on.png')}
           />
           <OverlayTouchable
