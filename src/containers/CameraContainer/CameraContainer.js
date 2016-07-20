@@ -86,7 +86,9 @@ export default class CameraContainer extends Component {
     });
   }
 
-  _handleFocusChange() { }
+  _handleFocusChange() { /* noop */ }
+
+  _handleZoomChange() { /* noop */ }
 
   render() {
     const camera = this.state.camera;
@@ -102,6 +104,7 @@ export default class CameraContainer extends Component {
           torchMode={camera.torchMode}
           defaultOnFocusComponent
           onFocusChanged={this._handleFocusChange}
+          onZoomChanged={this._handleZoomChange}
           type={camera.type}
           keepAwake={camera.keepAwake}
           mirrorImage={camera.mirrorImage}
