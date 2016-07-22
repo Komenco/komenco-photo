@@ -3,6 +3,8 @@ package com.komencophoto;
 import android.app.Application;
 import android.util.Log;
 
+import cl.json.RNSharePackage;
+
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new RCTCameraPackage(),
+          new RNSharePackage(),
           new MainReactPackage()
       );
     }

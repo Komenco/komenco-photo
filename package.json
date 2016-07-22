@@ -15,6 +15,7 @@
     "react-native": "0.29.2",
     "react-native-button": "^1.6.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
+    "react-native-cross-share": "0.0.1",
     "react-native-custom-action-sheet": "0.0.11",
     "react-native-router-flux": "^3.26.17",
     "react-native-vector-icons": "^2.0.3",
