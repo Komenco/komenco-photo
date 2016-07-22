@@ -4,10 +4,9 @@
  */
 
 import React, { Component } from 'react'
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
-import Share from 'react-native-share';
 import styles from './styles';
 
 import CaptureButton from '../../components/CaptureButton';
@@ -24,6 +23,7 @@ export default class CameraContainer extends Component {
         orientation: Camera.constants.Orientation.auto,
         flashMode: Camera.constants.FlashMode.off,
         torchMode: Camera.constants.TorchMode.off,
+        torchIcon: require('../../../assets/flash-on.png'),
         keepAwake: true,
         mirrorImage: false
       }
@@ -36,6 +36,7 @@ export default class CameraContainer extends Component {
 
   componentWillMount() {
     Camera.checkDeviceAuthorizationStatus;
+    StatusBar.setHidden(true);
   }
 
   _takePicture() {
@@ -45,16 +46,6 @@ export default class CameraContainer extends Component {
         Actions.preview(data.path);
       })
       .catch(err => console.error(err));
-  }
-
-  _onShare() {
-    Share.open({
-      share_text: "Hola mundo",
-      share_URL: "http://google.cl",
-      title: "Share Link"
-    },(e) => {
-      console.log(e);
-    });
   }
 
   _toggleCameraType() {
@@ -79,27 +70,47 @@ export default class CameraContainer extends Component {
     });
   }
 
-  _toggleTorchMode() {
-    let newTorchMode;
+  _torchIcon() {
+    let icon;
     const { on, off } = Camera.constants.TorchMode;
+    const { torchMode } = this.state.camera;
+    if (torchMode === on) {
+      icon = require('../../../assets/flash-on.png');
+    } else if (torchMode === off) {
+      icon = require('../../../assets/flash-off.png');
+    }
 
-    if (this.state.camera.torchMode === on) {
+    return icon;
+  }
+
+  _toggleTorchMode() {
+    const iconModeOn = require('../../../assets/flash-on.png');
+    const iconModeOff = require('../../../assets/flash-off.png');
+    const { on, off } = Camera.constants.TorchMode;
+    const { torchMode } = this.state.camera;
+    let newTorchMode;
+    let newTorchIcon;
+
+    if (torchMode === on) {
       newTorchMode = off;
-    } else if (this.state.camera.torchMode === off) {
+      newTorchIcon = iconModeOff;
+    } else if (torchMode === off) {
       newTorchMode = on;
+      newTorchIcon = iconModeOn;
     }
 
     this.setState({
       camera: {
         ...this.state.camera,
         torchMode: newTorchMode,
+        torchIcon: newTorchIcon
       }
     });
   }
 
-  _handleFocusChange() { /* noop */ }
+  _handleFocusChanged() { /* noop */ }
 
-  _handleZoomChange() { /* noop */ }
+  _handleZoomChanged() { /* noop */ }
 
   render() {
     const camera = this.state.camera;
@@ -114,8 +125,8 @@ export default class CameraContainer extends Component {
           flashMode={camera.flashMode}
           torchMode={camera.torchMode}
           defaultOnFocusComponent
-          onFocusChanged={this._handleFocusChange}
-          onZoomChanged={this._handleZoomChange}
+          onFocusChanged={this._handleFocusChanged}
+          onZoomChanged={this._handleZoomChanged}
           type={camera.type}
           keepAwake={camera.keepAwake}
           mirrorImage={camera.mirrorImage}
@@ -124,28 +135,22 @@ export default class CameraContainer extends Component {
         <View style={styles.topOverlay}>
           <OverlayTouchable
             onPress={this._toggleTorchMode}
-            imageSource={require('../../../assets/flash-off.png')}
-          />
-          <OverlayTouchable
-            onPress={this._onShare}
             imageSource={require('../../../assets/flash-on.png')}
           />
-          <OverlayTouchable
-            onPress={this._toggleTorchMode}
-            imageSource={require('../../../assets/switch.png')}
-          />
-        </View>
-        <View style={styles.bottomOverlay}>
           <OverlayTouchable
             onPress={this._toggleCameraType}
             imageSource={require('../../../assets/switch.png')}
           />
+        </View>
+
+        <CaptureButton takePicture={this._takePicture}/>
+
+        <View style={styles.bottomOverlay} pointerEvents='box-none'>
           <OverlayTouchable
-            onPress={this._toggleTorchMode}
-            imageSource={require('../../../assets/flash-on.png')}
+            onPress={this._toggleCameraType}
+            imageSource={require('../../../assets/switch.png')}
           />
         </View>
-        <CaptureButton takePicture={this._takePicture}/>
       </View>
     );
   }

@@ -6,11 +6,25 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, Platform } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import OverlayTouchable from '../../components/OverlayTouchable';
+import Share from 'react-native-cross-share';
 import Icon from 'react-native-vector-icons/EvilIcons';
+import styles from './styles';
 
 export default class PreviewContainer extends Component {
   constructor(props) {
     super(props);
+    this._onShare = this._onShare.bind(this);
+  }
+
+  _onShare() {
+    Share.open({
+      share_text: "Check this picture out!",
+      share_URL: this.props.data,
+      title: "Share Photo"
+    },(e) => {
+      console.log(e);
+    });
   }
 
   render() {
@@ -33,43 +47,18 @@ export default class PreviewContainer extends Component {
               color='rgba(255,255,255,1)'
             />
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={this._onShare}>
+            <Icon
+              name='external-link'
+              size={50}
+              color='rgba(255,255,255,1)'
+            />
+          </TouchableOpacity>
         </View>
       </View>
     );
   }
 }
-
-const tabHeight = (Platform.OS === 'ios') ? 60 : 80;
-const { height, width } = Dimensions.get('window');
-
-const styles = StyleSheet.create({
-  image: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0
-  },
-  previewView: {
-    flex: 1,
-    width: width,
-    height: height
-  },
-  topOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    width: width,
-    height: tabHeight,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingTop: (Platform.OS === 'ios') ? 40 : 0,
-    paddingLeft: 10,
-    paddingRight: 10,
-  },
-  backButton: {
-    backgroundColor: 'rgba(0,0,0,0)'
-  }
-});
