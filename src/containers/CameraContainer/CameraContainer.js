@@ -23,13 +23,13 @@ export default class CameraContainer extends Component {
         orientation: Camera.constants.Orientation.auto,
         flashMode: Camera.constants.FlashMode.off,
         torchMode: Camera.constants.TorchMode.off,
-        torchIcon: require('../../../assets/flash-on.png'),
         keepAwake: true,
         mirrorImage: false
       }
     }
 
     this._takePicture = this._takePicture.bind(this);
+    this._toggleFlashMode = this._toggleFlashMode.bind(this);
     this._toggleTorchMode = this._toggleTorchMode.bind(this);
     this._toggleCameraType = this._toggleCameraType.bind(this);
   }
@@ -70,40 +70,40 @@ export default class CameraContainer extends Component {
     });
   }
 
-  _torchIcon() {
-    let icon;
-    const { on, off } = Camera.constants.TorchMode;
-    const { torchMode } = this.state.camera;
-    if (torchMode === on) {
-      icon = require('../../../assets/flash-on.png');
-    } else if (torchMode === off) {
-      icon = require('../../../assets/flash-off.png');
-    }
-
-    return icon;
-  }
-
   _toggleTorchMode() {
-    const iconModeOn = require('../../../assets/flash-on.png');
-    const iconModeOff = require('../../../assets/flash-off.png');
     const { on, off } = Camera.constants.TorchMode;
     const { torchMode } = this.state.camera;
     let newTorchMode;
-    let newTorchIcon;
 
     if (torchMode === on) {
       newTorchMode = off;
-      newTorchIcon = iconModeOff;
     } else if (torchMode === off) {
       newTorchMode = on;
-      newTorchIcon = iconModeOn;
     }
 
     this.setState({
       camera: {
         ...this.state.camera,
-        torchMode: newTorchMode,
-        torchIcon: newTorchIcon
+        torchMode: newTorchMode
+      }
+    });
+  }
+
+  _toggleFlashMode() {
+    const { on, off } = Camera.constants.FlashMode;
+    const { flashMode } = this.state.camera;
+    let newFlashMode;
+
+    if (flashMode === on) {
+      newFlashMode = off;
+    } else if (flashMode === off) {
+      newFlashMode = on;
+    }
+
+    this.setState({
+      camera: {
+        ...this.state.camera,
+        flashMode: newFlashMode
       }
     });
   }
@@ -141,16 +141,20 @@ export default class CameraContainer extends Component {
             onPress={this._toggleCameraType}
             imageSource={require('../../../assets/switch.png')}
           />
+          <OverlayTouchable
+            onPress={this._toggleFlashMode}
+            imageSource={require('../../../assets/flash-off.png')}
+          />
         </View>
 
         <CaptureButton takePicture={this._takePicture}/>
 
-        <View style={styles.bottomOverlay} pointerEvents='box-none'>
+        {/*<View style={styles.bottomOverlay} pointerEvents='box-none'>
           <OverlayTouchable
             onPress={this._toggleCameraType}
             imageSource={require('../../../assets/switch.png')}
           />
-        </View>
+        </View>*/}
       </View>
     );
   }
