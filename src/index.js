@@ -1,14 +1,10 @@
 /**
- * Komenco Photo React Native Application
- * Author: André Neves
+ * Komenco Photo
  */
 
 import React from 'react';
 import { Router } from 'react-native-router-flux';
-import { StatusBar } from 'react-native';
 import scenes from './scenes/scenes';
-
-StatusBar.setBarStyle('light-content');
 
 const getSceneStyle = () => ({
   flex: 1,

@@ -4,7 +4,9 @@
  */
 
 import React, { Component } from 'react'
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, Platform, StatusBar } from 'react-native';
+import Icon from 'react-native-vector-icons/EvilIcons';
+import Share from 'react-native-cross-share';
 import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
 import styles from './styles';
@@ -16,6 +18,7 @@ export default class CameraContainer extends Component {
   constructor() {
     super();
     this.state = {
+      path: null,
       camera: {
         aspect: Camera.constants.Aspect.fill,
         captureTarget: Camera.constants.CaptureTarget.disk,
@@ -32,18 +35,36 @@ export default class CameraContainer extends Component {
     this._toggleFlashMode = this._toggleFlashMode.bind(this);
     this._toggleTorchMode = this._toggleTorchMode.bind(this);
     this._toggleCameraType = this._toggleCameraType.bind(this);
+    this._onShare = this._onShare.bind(this);
+    this._returnToCamera = this._returnToCamera.bind(this);
   }
 
   componentWillMount() {
+    // Ask for device authorization to use the Camera
     Camera.checkDeviceAuthorizationStatus;
+
+    // Hides StatusBar
     StatusBar.setHidden(true);
+  }
+
+  _returnToCamera() {
+    this.setState({ path: null });
+  }
+
+  _onShare() {
+    Share.open({
+      share_text: "Check this picture out!",
+      share_URL: this.state.path,
+      title: "Share Photo"
+    },(e) => {
+      console.log(e);
+    });
   }
 
   _takePicture() {
     this.refs.camera.capture()
       .then(data => {
-        console.log(data.path);
-        Actions.preview(data.path);
+        this.setState({ path: data.path });
       })
       .catch(err => console.error(err));
   }
@@ -112,7 +133,7 @@ export default class CameraContainer extends Component {
 
   _handleZoomChanged() { /* noop */ }
 
-  render() {
+  renderCamera() {
     const camera = this.state.camera;
 
     return (
@@ -148,13 +169,49 @@ export default class CameraContainer extends Component {
         </View>
 
         <CaptureButton takePicture={this._takePicture}/>
+      </View>
+    );
+  }
 
-        {/*<View style={styles.bottomOverlay} pointerEvents='box-none'>
-          <OverlayTouchable
-            onPress={this._toggleCameraType}
-            imageSource={require('../../../assets/switch.png')}
-          />
-        </View>*/}
+  renderImage() {
+    return (
+      <View style={styles.previewView}>
+        <Image
+          source={{
+            isStatic: true,
+            uri: this.state.path,
+          }}
+          style={styles.image}
+        />
+        <View style={styles.topOverlay}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={this._returnToCamera}>
+            <Icon
+              name='chevron-left'
+              size={50}
+              color='rgba(255,255,255,1)'
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={this._onShare}>
+            <Icon
+              name='external-link'
+              size={50}
+              color='rgba(255,255,255,1)'
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+
+  render() {
+    return (
+      <View style={styles.cameraView}>
+        {this.state.path ? this.renderImage() : this.renderCamera()}
       </View>
     );
   }

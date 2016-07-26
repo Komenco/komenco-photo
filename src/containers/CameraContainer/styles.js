@@ -45,6 +45,21 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
     paddingLeft: 10,
     paddingRight: 10,
+  },
+  image: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  },
+  previewView: {
+    flex: 1,
+    width: width,
+    height: height
+  },
+  backButton: {
+    backgroundColor: 'rgba(0,0,0,0)'
   }
 });
 

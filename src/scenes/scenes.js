@@ -14,13 +14,13 @@ const scenes = Actions.create(
       component={CameraContainer}
       title='Camera'
     />
-    <Scene
+    {/*<Scene
       key='preview'
       type='replace'
       hideNavBar={true}
       component={PreviewContainer}
       title='Preview'
-    />
+    />*/}
   </Scene>
 );
 
