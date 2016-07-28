@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-export default class OverlayTouchable extends Component {
+export default class OverlayTouchableImage extends Component {
   render() {
     return (
       <TouchableOpacity onPress={this.props.onPress}>

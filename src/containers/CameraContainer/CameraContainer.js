@@ -5,7 +5,6 @@
 
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity, Platform, StatusBar } from 'react-native';
-import Icon from 'react-native-vector-icons/EvilIcons';
 import Share from 'react-native-cross-share';
 import { Actions } from 'react-native-router-flux';
 import Camera from 'react-native-camera';
@@ -13,6 +12,7 @@ import styles from './styles';
 
 import CaptureButton from '../../components/CaptureButton';
 import OverlayTouchable from '../../components/OverlayTouchable';
+import OverlayTouchableIcon from '../../components/OverlayTouchableIcon';
 
 export default class CameraContainer extends Component {
   constructor() {
@@ -31,6 +31,7 @@ export default class CameraContainer extends Component {
       }
     }
 
+    // Binding `this`
     this._takePicture = this._takePicture.bind(this);
     this._toggleFlashMode = this._toggleFlashMode.bind(this);
     this._toggleTorchMode = this._toggleTorchMode.bind(this);
@@ -47,9 +48,7 @@ export default class CameraContainer extends Component {
     StatusBar.setHidden(true);
   }
 
-  _returnToCamera() {
-    this.setState({ path: null });
-  }
+
 
   _onShare() {
     Share.open({
@@ -61,6 +60,7 @@ export default class CameraContainer extends Component {
     });
   }
 
+  // Photo Taking methods
   _takePicture() {
     this.refs.camera.capture()
       .then(data => {
@@ -69,6 +69,11 @@ export default class CameraContainer extends Component {
       .catch(err => console.error(err));
   }
 
+  _returnToCamera() {
+    this.setState({ path: null });
+  }
+
+  // Camera Functionality Methods
   _toggleCameraType() {
     let newType;
     let mirrorImage;
@@ -129,20 +134,23 @@ export default class CameraContainer extends Component {
     });
   }
 
+  // Automatic handling of tapToFocus
   _handleFocusChanged() { /* noop */ }
 
+  // Automatic handling of pinchToZoom
   _handleZoomChanged() { /* noop */ }
 
+  // Render Camera View
   renderCamera() {
     const camera = this.state.camera;
 
     return (
-      <View style={styles.cameraView}>
+      <View style={styles.view}>
         <Camera
           ref='camera'
           captureTarget={camera.captureTarget}
           aspect={camera.aspect}
-          style={styles.camera}
+          style={styles.image}
           flashMode={camera.flashMode}
           torchMode={camera.torchMode}
           defaultOnFocusComponent
@@ -173,9 +181,10 @@ export default class CameraContainer extends Component {
     );
   }
 
+  // Render Image View
   renderImage() {
     return (
-      <View style={styles.previewView}>
+      <View style={styles.view}>
         <Image
           source={{
             isStatic: true,
@@ -184,25 +193,18 @@ export default class CameraContainer extends Component {
           style={styles.image}
         />
         <View style={styles.topOverlay}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={this._returnToCamera}>
-            <Icon
-              name='chevron-left'
-              size={50}
-              color='rgba(255,255,255,1)'
-            />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={this._onShare}>
-            <Icon
-              name='external-link'
-              size={50}
-              color='rgba(255,255,255,1)'
-            />
-          </TouchableOpacity>
+          <OverlayTouchableIcon
+            name='chevron-left'
+            size='50'
+            color='#ffffff'
+            onPress={this._returnToCamera}
+          />
+          <OverlayTouchableIcon
+            name='external-link'
+            size='50'
+            color='#ffffff'
+            onPress={this._onShare}
+          />
         </View>
       </View>
     );
@@ -210,9 +212,9 @@ export default class CameraContainer extends Component {
 
   render() {
     return (
-      <View style={styles.cameraView}>
-        {this.state.path ? this.renderImage() : this.renderCamera()}
-      </View>
-    );
+      (this.state.path)
+      ? this.renderImage()
+      : this.renderCamera()
+    )
   }
 }
