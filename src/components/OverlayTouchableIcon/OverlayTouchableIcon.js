@@ -4,11 +4,13 @@ import React, { Component } from 'react';
 import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
+import Styles from './Styles';
+
 export default class OverlayTouchableIcon extends Component {
   render() {
     return (
       <TouchableOpacity
-        style={styles.overlayTouchableIcon}
+        style={Styles.overlay}
         onPress={this.props.onPress}>
         <Icon
           name={this.props.iconName}
@@ -19,9 +21,3 @@ export default class OverlayTouchableIcon extends Component {
     );
   }
 };
-
-const styles = StyleSheet.create({
-  overlayTouchableIcon: {
-    backgroundColor: 'rgba(0,0,0,0)'
-  }
-});

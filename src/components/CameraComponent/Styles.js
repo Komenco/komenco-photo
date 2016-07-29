@@ -32,7 +32,7 @@ const Styles = StyleSheet.create({
     paddingBottom: 0,
     paddingLeft: Metrics.padding.medium,
     paddingRight: Metrics.padding.medium,
-    backgroundColor: Colors.background.transparent
+    backgroundColor: Colors.transparent
   }
 });
 

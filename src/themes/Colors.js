@@ -1,23 +1,18 @@
-const colors = {
-  background: '#1F0808',
-  clear: 'rgba(0,0,0,0)',
-  facebook: '#3b5998',
-  transparent: 'rgba(0,0,0,0)',
-  silver: '#F7F7F7',
-  steel: '#CCCCCC',
-  error: 'rgba(200, 0, 0, 0.8)',
-  ricePaper: 'rgba(255,255,255, 0.75)',
-  frost: '#D8D8D8',
-  cloud: 'rgba(200,200,200, 0.35)',
-  windowTint: 'rgba(0, 0, 0, 0.4)',
-  panther: '#161616',
-  charcoal: '#595959',
-  coal: '#2d2d2d',
-  bloodOrange: '#fb5f26',
-  snow: 'white',
-  ember: 'rgba(164, 0, 48, 0.5)',
-  fire: '#e73536',
-  drawer: 'rgba(30, 30, 29, 0.95)'
-}
+const Colors = {
+  white: 'rgba(255, 255, 255, 1)',
+  black: 'rgab(0, 0, 0, 1)',
+  transparent: 'rgba(0, 0, 0, 0)',
+  error: 'rgba(192, 57, 43, 1)',
+  success: 'rgba(46, 204, 113, 1)',
+  warning: 'rgba(230, 126, 34, 1)',
+  turquoise: 'rgba(26, 188, 156, 1)',
+  emerald: 'rgba(39, 174, 96, 1)',
+  river: 'rgba(41, 128, 185, 1)',
+  orange: 'rgba(243, 156, 18, 1)',
+  silver: 'rgba(189, 195, 199, 1)',
+  concrete: 'rgba(127, 140, 141, 1)',
+  wisteria: 'rgba(142, 68, 173, 1)',
+  asphalt: 'rgba(52, 73, 94, 1)'
+};
 
-export default colors
+export default Colors;

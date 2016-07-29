@@ -28,7 +28,8 @@ const Metrics = {
     small: 20,
     medium: 30,
     large: 45,
-    extraLarge: 60
+    extraLarge: 60,
+    capture: 75
   },
   tabHeight: (Platform.OS === 'ios') ? 60 : 80
 }

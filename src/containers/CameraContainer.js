@@ -6,8 +6,8 @@ import { StatusBar } from 'react-native';
 
 // Components
 import Camera from 'react-native-camera';
-import PhotoComponent from '../../components/PhotoComponent/PhotoComponent';
-import CameraComponent from '../../components/CameraComponent/CameraComponent';
+import PhotoComponent from '../components/PhotoComponent/PhotoComponent';
+import CameraComponent from '../components/CameraComponent/CameraComponent';
 
 export default class CameraContainer extends Component {
   constructor() {

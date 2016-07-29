@@ -6,8 +6,8 @@ import { View } from 'react-native';
 
 // Components
 import Camera from 'react-native-camera';
-import OverlayTouchable from './OverlayTouchable';
-import CaptureButton from './CaptureButton';
+import OverlayTouchableImage from '../OverlayTouchableImage/OverlayTouchableImage';
+import CaptureButton from '../CaptureButton/CaptureButton';
 
 // Styles
 import Styles from './Styles';
@@ -147,15 +147,15 @@ export default class CameraComponent extends Component {
         />
 
         <View style={Styles.topOverlay}>
-          <OverlayTouchable
+          <OverlayTouchableImage
             onPress={this._toggleTorchMode}
             imageSource={Images.flashOn}
           />
-          <OverlayTouchable
+          <OverlayTouchableImage
             onPress={this._toggleCameraType}
-            imageSource={Images.switchCamera)}
+            imageSource={Images.switchCamera}
           />
-          <OverlayTouchable
+          <OverlayTouchableImage
             onPress={this._toggleFlashMode}
             imageSource={Images.flashOff}
           />

@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 
 // Components
-import OverlayTouchableIcon from './OverlayTouchableIcon';
+import OverlayTouchableIcon from '../OverlayTouchableIcon/OverlayTouchableIcon';
 // import Share from 'react-native-cross-share';
 
 // Styles
