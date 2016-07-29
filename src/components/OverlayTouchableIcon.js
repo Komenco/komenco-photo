@@ -1,3 +1,5 @@
+'use strict';
+
 import React, { Component } from 'react';
 import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';

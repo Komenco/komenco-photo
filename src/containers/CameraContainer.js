@@ -6,9 +6,8 @@ import { StatusBar } from 'react-native';
 
 // Components
 import Camera from 'react-native-camera';
-
-// Styles
-import styles from './styles';
+import PhotoComponent from '../../components/PhotoComponent/PhotoComponent';
+import CameraComponent from '../../components/CameraComponent/CameraComponent';
 
 export default class CameraContainer extends Component {
   constructor() {
@@ -17,16 +16,14 @@ export default class CameraContainer extends Component {
       path: null
     }
 
+    // Binding Methods
     this.returnToCamera = this.returnToCamera.bind(this);
     this.takePicture = this.takePicture.bind(this);
   }
 
   componentWillMount() {
-    // Ask for device authorization to use the Camera
-    Camera.checkDeviceAuthorizationStatus;
-
-    // Hides StatusBar
-    StatusBar.setHidden(true);
+    Camera.checkDeviceAuthorizationStatus; // Device Permission
+    StatusBar.setHidden(true); // Hides StatusBar
   }
 
   returnToCamera() {
@@ -41,11 +38,11 @@ export default class CameraContainer extends Component {
     return (
       (this.state.path)
       ? <PhotoComponent
-          returnToCamera={this._returnToCamera}
+          returnToCamera={this.returnToCamera}
           photo={this.state.path}
         />
       : <CameraComponent
-          takePicture={this._takePicture}
+          takePicture={this.takePicture}
         />
     )
   }

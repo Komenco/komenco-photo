@@ -10,7 +10,10 @@ import OverlayTouchable from './OverlayTouchable';
 import CaptureButton from './CaptureButton';
 
 // Styles
-import styles from '../containers/CameraContainer/styles';
+import Styles from './Styles';
+
+// Images
+import Images from '../../themes/Images';
 
 export default class CameraComponent extends Component {
   constructor(props) {
@@ -127,12 +130,12 @@ export default class CameraComponent extends Component {
     const camera = this.state.camera;
 
     return (
-      <View style={styles.view}>
+      <View style={Styles.mainContainer}>
         <Camera
           ref='camera'
           captureTarget={camera.captureTarget}
           aspect={camera.aspect}
-          style={styles.image}
+          style={Styles.fullScreen}
           flashMode={camera.flashMode}
           torchMode={camera.torchMode}
           defaultOnFocusComponent
@@ -143,18 +146,18 @@ export default class CameraComponent extends Component {
           mirrorImage={camera.mirrorImage}
         />
 
-        <View style={styles.topOverlay}>
+        <View style={Styles.topOverlay}>
           <OverlayTouchable
             onPress={this._toggleTorchMode}
-            imageSource={require('../../assets/flash-on.png')}
+            imageSource={Images.flashOn}
           />
           <OverlayTouchable
             onPress={this._toggleCameraType}
-            imageSource={require('../../assets/switch.png')}
+            imageSource={Images.switchCamera)}
           />
           <OverlayTouchable
             onPress={this._toggleFlashMode}
-            imageSource={require('../../assets/flash-off.png')}
+            imageSource={Images.flashOff}
           />
         </View>
 

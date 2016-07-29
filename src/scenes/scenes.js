@@ -1,16 +1,20 @@
+'use strict';
+
+// React & Router Components
 import React from 'react';
 import { Actions, Scene } from 'react-native-router-flux';
 
-import CameraContainer from '../containers/CameraContainer/CameraContainer';
+// Initial Container
+import CameraContainer from '../containers/CameraContainer';
 
 const scenes = Actions.create(
   <Scene key='app'>
     <Scene
       key='camera'
       type='replace'
-      initial={true}
-      hideNavBar={true}
-      component={CameraContainer}
+      initial
+      hideNavBar
+      component={ CameraContainer }
       title='Camera'
     />
   </Scene>

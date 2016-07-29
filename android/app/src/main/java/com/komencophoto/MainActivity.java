@@ -1,7 +1,6 @@
 package com.komencophoto;
 
 import com.facebook.react.ReactActivity;
-import cl.json.RNSharePackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 
