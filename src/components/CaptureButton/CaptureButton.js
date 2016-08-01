@@ -1,11 +1,11 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, TouchableOpacity, Image } from 'react-native';
-import Images from '../../themes/index';
+// import Images from '../../themes/index';
 import Styles from './Styles';
 
-export default class CaptureButton extends Component {
+class CaptureButton extends Component {
   render() {
     return (
       <View style={Styles.container}>
@@ -21,3 +21,9 @@ export default class CaptureButton extends Component {
     );
   }
 }
+
+CaptureButton.propTypes = {
+  takePicture: PropTypes.func.isRequired
+}
+
+export default CaptureButton;

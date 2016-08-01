@@ -1,7 +1,7 @@
 'use strict';
 
 // Core Components
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View } from 'react-native';
 
 // Components
@@ -15,7 +15,7 @@ import Styles from './Styles';
 // Images
 import Images from '../../themes/Images';
 
-export default class CameraComponent extends Component {
+class CameraComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -166,3 +166,9 @@ export default class CameraComponent extends Component {
     )
   }
 }
+
+CameraComponent.propTypes = {
+  takePicture: PropTypes.func.isRequired
+};
+
+export default CameraComponent;

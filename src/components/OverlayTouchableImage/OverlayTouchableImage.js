@@ -1,11 +1,11 @@
 'use strict';
 
-import React, { Component } from 'react';
-import { TouchableOpacity, Image, StyleSheet } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { TouchableOpacity, Image } from 'react-native';
 
 import Styles from './Styles';
 
-export default class OverlayTouchableImage extends Component {
+class OverlayTouchableImage extends Component {
   render() {
     return (
       <TouchableOpacity onPress={this.props.onPress}>
@@ -15,4 +15,11 @@ export default class OverlayTouchableImage extends Component {
       </TouchableOpacity>
     );
   }
+}
+
+OverlayTouchableImage.propTypes = {
+  onPress: PropTypes.func,
+  imageSource: PropTypes.string.isRequired
 };
+
+export default OverlayTouchableImage;

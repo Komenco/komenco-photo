@@ -1,4 +1,4 @@
-<View style={styles.actionSheetOverlay}>
+{/*<View style={styles.actionSheetOverlay}>
   <CustomActionSheet modalVisible={profileActionSheet} onCancel={this._hideProfileActionSheet}>
     <View>
     <View style={styles.actionSheetHeader}>
@@ -75,4 +75,4 @@ actionSheetHeaderText: {
   color: '#aaa',
   alignSelf: 'center',
   fontSize: 12
-}
+}*/}

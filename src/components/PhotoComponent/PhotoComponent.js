@@ -1,7 +1,7 @@
 'use strict';
 
 // Core Components
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, Image } from 'react-native';
 
 // Components
@@ -11,7 +11,7 @@ import OverlayTouchableIcon from '../OverlayTouchableIcon/OverlayTouchableIcon';
 // Styles
 import Styles from './Styles';
 
-export default class CameraComponent extends Component {
+class PhotoComponent extends Component {
   constructor(props) {
     super(props);
 
@@ -73,3 +73,10 @@ export default class CameraComponent extends Component {
     )
   }
 }
+
+PhotoComponent.propTypes = {
+  returnToCamera: PropTypes.func.isRequired,
+  photo: PropTypes.string.isRequired
+};
+
+export default PhotoComponent;
