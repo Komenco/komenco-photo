@@ -1,12 +1,12 @@
 'use strict';
 
-import React, { Component } from 'react';
-import { TouchableOpacity, Image, StyleSheet } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
 import Styles from './Styles';
 
-export default class OverlayTouchableIcon extends Component {
+class OverlayTouchableIcon extends Component {
   render() {
     return (
       <TouchableOpacity
@@ -20,4 +20,14 @@ export default class OverlayTouchableIcon extends Component {
       </TouchableOpacity>
     );
   }
-};
+}
+
+OverlayTouchableIcon.propTypes = {
+  onPress: PropTypes.func,
+  iconName: PropTypes.string.isRequired,
+  iconSize: PropTypes.string.isRequired,
+  color: PropTypes.sting
+}
+
+
+export default OverlayTouchableIcon;

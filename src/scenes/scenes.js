@@ -14,7 +14,7 @@ const scenes = Actions.create(
       type='replace'
       initial
       hideNavBar
-      component={ CameraContainer }
+      component={CameraContainer}
       title='Camera'
     />
   </Scene>
