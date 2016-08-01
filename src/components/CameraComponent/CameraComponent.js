@@ -2,7 +2,7 @@
 
 // Core Components
 import React, { Component, PropTypes } from 'react';
-import { View } from 'react-native';
+import { View, AlertIOS } from 'react-native';
 
 // Components
 import Camera from 'react-native-camera';
@@ -47,7 +47,12 @@ class CameraComponent extends Component {
       .then(data => {
         this.props.takePicture(data.path);
       })
-      .catch(err => console.error(err));
+      .catch((err) => {
+        AlertIOS.alert(
+         'Whoops!',
+         `The application encountered an error: ${err}`
+        );
+      });
   }
 
   /*
