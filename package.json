@@ -8,7 +8,8 @@
     "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && npm cache clean",
     "clean-start": "npm run clean && npm run rc-start",
     "fresh-install": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build/ModuleCache/* && rm -rf node_modules/ && npm cache clean && npm install",
-    "fresh-start": "npm run fresh-install && npm run rc-start"
+    "fresh-start": "npm run fresh-install && npm run rc-start",
+    "xcode": "open ios/KomencoPhoto.xcodeproj"
   },
   "dependencies": {
     "react": "15.2.1",

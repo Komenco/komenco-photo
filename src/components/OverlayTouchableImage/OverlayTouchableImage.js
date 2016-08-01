@@ -19,7 +19,7 @@ class OverlayTouchableImage extends Component {
 
 OverlayTouchableImage.propTypes = {
   onPress: PropTypes.func,
-  imageSource: PropTypes.string.isRequired
+  imageSource: PropTypes.number.isRequired
 };
 
 export default OverlayTouchableImage;

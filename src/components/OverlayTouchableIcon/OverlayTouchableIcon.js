@@ -25,8 +25,8 @@ class OverlayTouchableIcon extends Component {
 OverlayTouchableIcon.propTypes = {
   onPress: PropTypes.func,
   iconName: PropTypes.string.isRequired,
-  iconSize: PropTypes.string.isRequired,
-  color: PropTypes.sting
+  iconSize: PropTypes.number.isRequired,
+  color: PropTypes.string
 }
 
 
