@@ -29,6 +29,7 @@
 		4B307C2AC7DE421280B8A64B /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB6D34F68D1B4CF7BA3C68AC /* Foundation.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		868F571D51D54D59AFEE8ACB /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D41619C3330F478780D3E5EF /* MaterialIcons.ttf */; };
+		87728E23298242AB97321D37 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 170D178131B24504B030E350 /* libRNShare.a */; };
 		92F8CF0EE2594F58A2E53239 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 031D7D3C651046D387E23778 /* Zocial.ttf */; };
 		96448C0C0BDC45BDBC0E1FFC /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D47EC5912216460680844A7E /* Entypo.ttf */; };
 		DB7D2F7AC1DE4A788CFB29B5 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70B4036BDA644B3894266409 /* Octicons.ttf */; };
@@ -113,6 +114,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		908DD1281D9AF516003A1857 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26928B88AD0F4975A148E578 /* RNShare.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNShare;
+		};
 		90B739D61D3ED4B6007F7F1C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0907B3D31DFE43288FDD62B1 /* RCTCamera.xcodeproj */;
@@ -151,7 +159,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = KomencoPhoto/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = KomencoPhoto/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		170D178131B24504B030E350 /* libRNShare.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNShare.a; sourceTree = "<group>"; };
 		250C4303584E4E808AC84590 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		26928B88AD0F4975A148E578 /* RNShare.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-cross-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
 		613806E0B8AA4FBD9972C1DB /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		70B4036BDA644B3894266409 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		783C1A2A35D44C0BB0F3447A /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
@@ -190,6 +200,7 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				3B7AE86B39C84302B7324E4F /* libRCTCamera.a in Frameworks */,
 				F82875BAB6124D68A43CEC95 /* libRNVectorIcons.a in Frameworks */,
+				87728E23298242AB97321D37 /* libRNShare.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +340,7 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				0907B3D31DFE43288FDD62B1 /* RCTCamera.xcodeproj */,
 				783C1A2A35D44C0BB0F3447A /* RNVectorIcons.xcodeproj */,
+				26928B88AD0F4975A148E578 /* RNShare.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -359,6 +371,14 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* KomencoPhoto.app */,
 				00E356EE1AD99517003FC87E /* KomencoPhotoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		908DD11A1D9AF516003A1857 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				908DD1291D9AF516003A1857 /* libRNShare.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -490,6 +510,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 908DD11A1D9AF516003A1857 /* Products */;
+					ProjectRef = 26928B88AD0F4975A148E578 /* RNShare.xcodeproj */;
+				},
+				{
 					ProductGroup = 90B739D21D3ED4B6007F7F1C /* Products */;
 					ProjectRef = 783C1A2A35D44C0BB0F3447A /* RNVectorIcons.xcodeproj */;
 				},
@@ -571,6 +595,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		908DD1291D9AF516003A1857 /* libRNShare.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNShare.a;
+			remoteRef = 908DD1281D9AF516003A1857 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		90B739D71D3ED4B6007F7F1C /* libRCTCamera.a */ = {
@@ -685,7 +716,10 @@
 				INFOPLIST_FILE = KomencoPhotoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KomencoPhoto.app/KomencoPhoto";
 			};
@@ -699,7 +733,10 @@
 				INFOPLIST_FILE = KomencoPhotoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KomencoPhoto.app/KomencoPhoto";
 			};
@@ -717,6 +754,7 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-cross-share/ios",
 				);
 				INFOPLIST_FILE = KomencoPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -740,6 +778,7 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-cross-share/ios",
 				);
 				INFOPLIST_FILE = KomencoPhoto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -793,6 +832,7 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-cross-share/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -836,6 +876,7 @@
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-cross-share/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
