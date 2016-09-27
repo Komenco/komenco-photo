@@ -1,5 +1,3 @@
-'use strict';
-
 // Core Components
 import React, { Component } from 'react'
 import { StatusBar } from 'react-native';

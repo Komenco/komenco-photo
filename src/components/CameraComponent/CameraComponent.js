@@ -1,5 +1,3 @@
-'use strict';
-
 // Core Components
 import React, { Component, PropTypes } from 'react';
 import { View, AlertIOS } from 'react-native';

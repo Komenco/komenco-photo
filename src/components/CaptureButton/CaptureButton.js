@@ -1,8 +1,6 @@
-'use strict';
-
 import React, { Component, PropTypes } from 'react';
 import { View, TouchableOpacity, Image } from 'react-native';
-// import Images from '../../themes/index';
+
 import Styles from './Styles';
 
 class CaptureButton extends Component {

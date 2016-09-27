@@ -1,7 +1,4 @@
-'use strict';
-
 // Image URIs
-
 const Images = {
   flashOn: require('../../assets/flash-on.png'),
   flashOff: require('../../assets/flash-off.png'),

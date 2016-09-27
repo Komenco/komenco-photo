@@ -2,8 +2,6 @@
 ** Komenco Photo
 **/
 
-'use strict';
-
 import React from 'react';
 import { Router } from 'react-native-router-flux';
 import scenes from './scenes/scenes';

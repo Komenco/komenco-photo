@@ -1,5 +1,3 @@
-'use strict';
-
 // Core Components
 import { Dimensions, Platform } from 'react-native';
 

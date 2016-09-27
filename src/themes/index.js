@@ -1,5 +1,3 @@
-'use strict';
-
 import AppStyles from './AppStyles';
 import Metrics from './Metrics';
 import Colors from './Colors';

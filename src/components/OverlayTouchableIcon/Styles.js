@@ -1,5 +1,3 @@
-'use strict';
-
 import { StyleSheet } from 'react-native';
 import { Colors } from '../../themes/index';
 

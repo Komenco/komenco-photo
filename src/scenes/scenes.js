@@ -1,5 +1,3 @@
-'use strict';
-
 // React & Router Components
 import React from 'react';
 import { Actions, Scene } from 'react-native-router-flux';

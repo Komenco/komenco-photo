@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component, PropTypes } from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
@@ -28,6 +26,5 @@ OverlayTouchableIcon.propTypes = {
   iconSize: PropTypes.number.isRequired,
   color: PropTypes.string
 }
-
 
 export default OverlayTouchableIcon;

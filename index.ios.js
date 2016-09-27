@@ -1,5 +1,5 @@
 /**
- * Komenco Photo React Naitve Application
+ * Komenco Photo React Native Application
  * Author: André Neves @andrerfneves
  * iOS Application
  */
