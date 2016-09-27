@@ -35,6 +35,8 @@
     </dict>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string/>
+    <key>NSCameraUsageDescription</key>
+    <string>This app uses the camera.</string>
     <key>UIAppFonts</key>
     <array>
       <string>Entypo.ttf</string>
