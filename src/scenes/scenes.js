@@ -1,8 +1,6 @@
-// React & Router Components
 import React from 'react';
 import { Actions, Scene } from 'react-native-router-flux';
 
-// Initial Container
 import CameraContainer from '../containers/CameraContainer';
 
 const scenes = Actions.create(

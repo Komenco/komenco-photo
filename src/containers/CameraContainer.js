@@ -1,11 +1,10 @@
-// Core Components
 import React, { Component } from 'react'
 import { StatusBar } from 'react-native';
 
-// Components
-import Camera from 'react-native-camera';
 import PhotoComponent from '../components/PhotoComponent/PhotoComponent';
 import CameraComponent from '../components/CameraComponent/CameraComponent';
+
+import Camera from 'react-native-camera';
 
 export default class CameraContainer extends Component {
   constructor() {
@@ -14,7 +13,6 @@ export default class CameraContainer extends Component {
       path: null
     }
 
-    // Binding Methods
     this.returnToCamera = this.returnToCamera.bind(this);
     this.takePicture = this.takePicture.bind(this);
   }

@@ -1,16 +1,11 @@
-// Core Components
 import React, { Component, PropTypes } from 'react';
 import { View, AlertIOS } from 'react-native';
 
-// Components
 import Camera from 'react-native-camera';
 import OverlayTouchableImage from '../OverlayTouchableImage/OverlayTouchableImage';
 import CaptureButton from '../CaptureButton/CaptureButton';
 
-// Styles
 import Styles from './Styles';
-
-// Images
 import Images from '../../themes/Images';
 
 class CameraComponent extends Component {
@@ -25,7 +20,8 @@ class CameraComponent extends Component {
         flashMode: Camera.constants.FlashMode.off,
         torchMode: Camera.constants.TorchMode.off,
         keepAwake: true,
-        mirrorImage: false
+        mirrorImage: false,
+        captureAudio: false
       }
     }
 
@@ -35,10 +31,6 @@ class CameraComponent extends Component {
     this._toggleTorchMode = this._toggleTorchMode.bind(this);
     this._toggleCameraType = this._toggleCameraType.bind(this);
   }
-
-  /*
-  ** Photo Taking Methods
-  */
 
   _takePicture() {
     this.refs.camera.capture()
@@ -52,10 +44,6 @@ class CameraComponent extends Component {
         );
       });
   }
-
-  /*
-  ** Camera Functionality Methods
-  */
 
   _toggleCameraType() {
     let newType;
@@ -117,17 +105,9 @@ class CameraComponent extends Component {
     });
   }
 
-  /*
-  ** TapToFocus & PinchToZoom Methods
-  */
-
   _handleFocusChanged() { /* noop */ }
 
   _handleZoomChanged() { /* noop */ }
-
-  /*
-  ** Render Camera Component
-  */
 
   render() {
     const camera = this.state.camera;
@@ -151,16 +131,12 @@ class CameraComponent extends Component {
 
         <View style={Styles.topOverlay}>
           <OverlayTouchableImage
-            onPress={this._toggleTorchMode}
+            onPress={this._toggleFlashMode}
             imageSource={Images.flashOn}
           />
           <OverlayTouchableImage
             onPress={this._toggleCameraType}
             imageSource={Images.switchCamera}
-          />
-          <OverlayTouchableImage
-            onPress={this._toggleFlashMode}
-            imageSource={Images.flashOff}
           />
         </View>
 

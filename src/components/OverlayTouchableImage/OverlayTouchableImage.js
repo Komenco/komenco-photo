@@ -1,19 +1,15 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 
 import Styles from './Styles';
 
-class OverlayTouchableImage extends Component {
-  render() {
-    return (
-      <TouchableOpacity onPress={this.props.onPress}>
-        <Image
-        source={this.props.imageSource}
-        style={Styles.overlay}/>
-      </TouchableOpacity>
-    );
-  }
-}
+const OverlayTouchableImage = ({onPress, imageSource}) => (
+  <TouchableOpacity onPress={onPress}>
+    <Image
+    source={imageSource}
+    style={Styles.overlay}/>
+  </TouchableOpacity>
+);
 
 OverlayTouchableImage.propTypes = {
   onPress: PropTypes.func,
